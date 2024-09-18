@@ -1,9 +1,15 @@
+/* eslint-disable prettier/prettier */
+// src/course/course.module.ts
+
 import { Module } from '@nestjs/common';
-import { CourseController } from './course.controller';
+import { MongooseModule } from '@nestjs/mongoose';
 import { CourseService } from './course.service';
+import { CourseController } from './course.controller';
+import { Course, CourseSchema } from './schemas/course.schema';
 
 @Module({
+  imports: [MongooseModule.forFeature([{ name: Course.name, schema: CourseSchema }])],
   controllers: [CourseController],
-  providers: [CourseService]
+  providers: [CourseService],
 })
 export class CourseModule {}
