@@ -4,10 +4,10 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AuthenticationModule } from './authentication/authentication.module';
-import { SchoolModule } from './school/school.module';
-import { CourseModule } from './course/course.module';
-import { AdminModule } from './admin/admin.module';
+import { AuthenticationModule } from './modules/authentication/authentication.module';
+import { SchoolModule } from './modules/school/school.module';
+import { CourseModule } from './modules/course/course.module';
+import { AdminModule } from './modules/admin/admin.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
