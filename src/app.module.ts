@@ -13,6 +13,7 @@ import { StudentsModule } from './modules/students/students.module';
 import { ChatModule } from './modules/chat/chat.module';
 import { ParentsModule } from './modules/parents/parents.module';
 import { SubjectModule } from './modules/subject/subject.module';
+import { AcademicModule } from './modules/academic/academic.module';
 
 @Module({
 imports: [
@@ -37,6 +38,7 @@ imports: [
     ChatModule,
     ParentsModule,
     SubjectModule,
+    AcademicModule,
   ],    controllers: [AppController],
     providers: [AppService],
 })
