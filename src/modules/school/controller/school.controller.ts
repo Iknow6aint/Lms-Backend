@@ -2,7 +2,7 @@
 // src/school/school.controller.ts
 
 import { Controller, Get, Post, Body, Param } from '@nestjs/common';
-import { SchoolService } from './school.service';
+import { SchoolService } from '../service/school.service';
 
 @Controller('schools')
 export class SchoolController {

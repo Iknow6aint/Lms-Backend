@@ -9,6 +9,10 @@ import { SchoolModule } from './modules/school/school.module';
 import { CourseModule } from './modules/course/course.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { StudentsModule } from './modules/students/students.module';
+import { ChatModule } from './modules/chat/chat.module';
+import { ParentsModule } from './modules/parents/parents.module';
+import { SubjectModule } from './modules/subject/subject.module';
 
 @Module({
 imports: [
@@ -29,6 +33,10 @@ imports: [
     SchoolModule,
     CourseModule,
     AdminModule,
+    StudentsModule,
+    ChatModule,
+    ParentsModule,
+    SubjectModule,
   ],    controllers: [AppController],
     providers: [AppService],
 })

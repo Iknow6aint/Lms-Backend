@@ -3,8 +3,8 @@
 
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { SchoolService } from './school.service';
-import { SchoolController } from './school.controller';
+import { SchoolService } from './service/school.service';
+import { SchoolController } from './controller/school.controller';
 import { School, SchoolSchema } from './schemas/school.schema';
 
 @Module({
