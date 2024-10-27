@@ -10,10 +10,15 @@ import * as hpp from 'hpp';
 import * as morgan from 'morgan';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { ConfigService } from '@nestjs/config';
+import { ResponseInterceptor } from './common/interceptors/response/response.interceptor';
+import { HttpExceptionFilter } from './common/filters/http-exception/http-exception.filter';
+import { WinstonModule } from 'nest-winston';
+import { winstonConfig } from './core/config/winston.config';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  const configService = app.get(ConfigService);
+const app = await NestFactory.create(AppModule, {
+    logger: WinstonModule.createLogger(winstonConfig),
+  });  const configService = app.get(ConfigService);
   const logger = new Logger('Bootstrap');
 
   // Set global prefix
@@ -25,6 +30,10 @@ async function bootstrap() {
   app.use(hpp());
   app.use(compression());
   app.useGlobalPipes(new ValidationPipe());
+
+  //global interceptors
+    app.useGlobalInterceptors(new ResponseInterceptor());
+    app.useGlobalFilters(new HttpExceptionFilter());
 
   // Swagger setup
   const config = new DocumentBuilder()
